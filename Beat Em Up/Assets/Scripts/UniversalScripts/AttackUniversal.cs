@@ -40,7 +40,8 @@ public class AttackUniversal : MonoBehaviour
 
                 Instantiate(hit_FX_Prefab, hitFX_Pos, Quaternion.identity);
 
-                if(gameObject.CompareTag(Tags.LEFT_ARM_TAG) || gameObject.CompareTag(Tags.LEFT_LEG_TAG))
+                // to determine if combo was achieved to trigger posible knock down effect on enemy
+                if(gameObject.CompareTag(Tags.LEFT_ARM_TAG) || gameObject.CompareTag(Tags.LEFT_LEG_TAG))    
                 {
                     hit[0].GetComponent<HealthScript>().ApplyDamage(damage, true);
                 } else

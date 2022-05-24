@@ -43,4 +43,6 @@ public class Tags
     public const string MAIN_CAMERA_TAG = "MainCamera";
     public const string PLAYER_HEALTH_UI = "PlayerHealthUI";
     public const string ENEMY_HEALTH_UI = "EnemyHealthUI";
+    public const string GAME_OVER_UI = "GameOverUI";
+    public const string RESTART_UI = "RestartUI";
 }

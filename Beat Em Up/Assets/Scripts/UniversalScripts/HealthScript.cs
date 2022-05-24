@@ -43,6 +43,8 @@ public class HealthScript : MonoBehaviour
             if(is_Player)
             {
                 GameObject.FindWithTag(Tags.ENEMY_TAG).GetComponent<EnemyMovement>().enabled = false;
+                GameObject.FindWithTag(Tags.PLAYER_TAG).GetComponent<PlayerMovement>().enabled = false;
+                GameObject.FindWithTag(Tags.PLAYER_TAG).GetComponent<PlayerAttack>().enabled = false;
             }
 
             return;

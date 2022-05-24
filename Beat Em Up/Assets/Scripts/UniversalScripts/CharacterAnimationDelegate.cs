@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterAnimationDelegate : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class CharacterAnimationDelegate : MonoBehaviour
 
     private ShakeCamera shakeCamera;
 
+    private Text gameOver_UI, restart_UI;
+
     void Awake()
     {
         animationScript = GetComponent<CharacterAnimation>();
@@ -32,6 +35,9 @@ public class CharacterAnimationDelegate : MonoBehaviour
         }
 
         shakeCamera = GameObject.FindWithTag(Tags.MAIN_CAMERA_TAG).GetComponent<ShakeCamera>();
+
+        gameOver_UI = GameObject.FindWithTag(Tags.GAME_OVER_UI).GetComponent<Text>();
+        restart_UI = GameObject.FindWithTag(Tags.RESTART_UI).GetComponent<Text>();
     }
 
 
@@ -181,4 +187,17 @@ public class CharacterAnimationDelegate : MonoBehaviour
 
         gameObject.SetActive(false);
     }
+
+    void PlayerDied()
+    {
+        gameOver_UI.enabled = true;
+        Invoke("ReloadScene", 1f);        
+    }
+
+    void ReloadScene()
+    {
+        restart_UI.enabled = true;
+        SceneReload.instance.ReadyToReload = true;
+    }
+
 }
